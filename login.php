@@ -1,13 +1,9 @@
 <?php
+
+require('connect.php');
+
 $Leerlingnummer = $_POST['Leerlingnummmer'];
 $Encrypt = hash('sha224', $_POST['Wachtwoord']);
-
-$server = "localhost";
-$user = "root";
-$pass = "usbw";
-
-mysql_connect($server, $user, $pass) or die("Geen verbinding mogelijk met database");
-mysql_select_db("urenboek") or die("Databank niet gevonden");
 
 $PHP = mysql_query("SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND Wachtwoord='$Encrypt';");
 $PHP2 = mysql_query("SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND Wachtwoord='ABC';");
