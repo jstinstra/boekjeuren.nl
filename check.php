@@ -2,12 +2,7 @@
 if (isset($_SESSION['Username']) && $_SESSION['Username'] == true) {
 $Leerlingnummer = $_SESSION['Username'];
 
-$server = "localhost";
-$user = "root";
-$pass = "usbw";
-
-mysql_connect($server, $user, $pass) or die("Geen verbinding mogelijk met database");
-mysql_select_db("urenboek") or die("Databank niet gevonden");
+require('connect.php');
 
 $PHP = mysql_query("SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND FirstLogin= 0;");
 $Telquery = mysql_num_rows($PHP);
