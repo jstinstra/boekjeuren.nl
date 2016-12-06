@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <?php
+
 error_reporting(0);
 session_start();
 require_once("check.php");
 require_once("groupcheckadmin.php");
+require('connect.php');
 ?>
 <!--<div class="printlogo" id="printlogo" style="	visibility: hidden;"><img src="img/selfie.png"></div>-->
 <html lang="en">
@@ -27,12 +29,12 @@ include("Nav.php")
 ?>
 
 <div class="container">
-  
+
   <div class="text-center">
     <h1>Log hier je uren.</h1>
     <p class="lead">Vergeet niet te saven!</p>
   </div>
-  
+
 </div>
 
 <div class="filterbalk">
@@ -40,25 +42,17 @@ include("Nav.php")
 		<select class='selectbox' name="Klassen">
 			<option value="%"> </option>
 		<?php
-			$Server = "localhost";
-			$Username = "root";
-			$Password = "usbw";
-			$Database = "urenboek";
 			$sql = "SELECT DISTINCT Klas FROM account;";
-			
-			//Verbinden met database
-			mysql_connect($Server, $Username, $Password);
-			mysql_select_db($Database);
 			$Resultaat = mysql_query($sql) or die ("Mislukt");
 			while ($row = mysql_fetch_assoc($Resultaat)) {
 				echo ("
 				<option value='".$row["Klas"]."'>".$row["Klas"]."</option>
-				
+
 				");
-							
+
 			}
 		?>
-			
+
 		</select>
 		<select class='selectbox' name="Leerlingnummer">
 			<option value="%"> </option>
@@ -68,7 +62,7 @@ include("Nav.php")
 			$Password = "usbw";
 			$Database = "urenboek";
 			$sql = "SELECT DISTINCT Leerlingnummer FROM account;";
-			
+
 			//Verbinden met database
 			mysql_connect($Server, $Username, $Password);
 			mysql_select_db($Database);
@@ -76,9 +70,9 @@ include("Nav.php")
 			while ($row = mysql_fetch_assoc($Resultaat)) {
 				echo ("
 				<option value='".$row["Leerlingnummer"]."'>".$row["Leerlingnummer"]."</option>
-				
+
 				");
-							
+
 			}
 		?>
 		</select>
@@ -90,7 +84,7 @@ include("Nav.php")
 				$Password = "usbw";
 				$Database = "urenboek";
 				$sql = "SELECT DISTINCT Vak FROM vakken ORDER BY Vak;";
-				
+
 				//Verbinden met database
 				mysql_connect($Server, $Username, $Password);
 				mysql_select_db($Database);
@@ -98,9 +92,9 @@ include("Nav.php")
 				while ($row = mysql_fetch_assoc($Resultaat)) {
 					echo ("
 					<option value='".$row["Vak"]."'>".$row["Vak"]."</option>
-					
+
 					");
-								
+
 				}
 			?>
 		</select>
@@ -122,7 +116,7 @@ include("Nav.php")
 
 
 <!-- clock manual
-<!-- ClockPicker script 
+<!-- ClockPicker script
 <script type="text/javascript" src="js/bootstrap-clockpicker.min.js"></script>
 
 <script type="text/javascript">
@@ -143,11 +137,11 @@ if (something) {
 </script>
 <input id="tijdstop" class="inputbox"  name='tijdstop' class="input" placeholder="Tijd-Stop"/>
 
-<!-- jQuery and Bootstrap scripts 
+<!-- jQuery and Bootstrap scripts
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
-<!-- ClockPicker script 
+<!-- ClockPicker script
 <script type="text/javascript" src="js/bootstrap-clockpicker.min.js"></script>
 
 <script type="text/javascript">
@@ -173,26 +167,26 @@ if (something) {
 
 
         <script type="text/javascript">
-            
+
             $(document).ready(function () {
-                
+
                $('#datum').datepicker({
                     format: "dd/mm/yyyy"
-                });  
-            
-            });
-		</script>		
-		-->		
+                });
 
-		
-<div class="row col-md-8">		
+            });
+		</script>
+		-->
+
+
+<div class="row col-md-8">
 <table>
 <form action = "newinsert.php" method = "get">
 
 <?php
 if (empty($_SESSION['TimeStart']) && empty($_SESSION['TimeStop'])){
 	echo"
-    <button type = 'submit' name = 'submit' value = 'Tijd-in' class='clockbutton'>        
+    <button type = 'submit' name = 'submit' value = 'Tijd-in' class='clockbutton'>
         Clock In
     </button>
 	";
@@ -232,13 +226,13 @@ else if(isset($_SESSION['TimeStart']) && isset($_SESSION['TimeStop']))
 	<option value='Nederlands'> Nederlands </option>
 
 <input id='werkzaamheden' class='inputbox' name='werkzaamheden' placeholder='werkzaamheden' pattern='.{10,200}'  title='40 tot 200 characters' required>
-<input type='submit' class='savebutton' name='post' placeholder='Opslaan'> 
+<input type='submit' class='savebutton' name='post' placeholder='Opslaan'>
 
 
 
 
 
-			  
+
 
 
 ";
@@ -255,9 +249,9 @@ else if(isset($_SESSION['TimeStart']) && isset($_SESSION['TimeStop']))
 </div>
 <div class="viewtable" id="viewtable">
 	<?php
-	
+
 		if(isset($_POST['Filter']))
-		{	
+		{
 			$Leerlingnummer = $_POST['Leerlingnummer'];
 			$Klassen = $_POST['Klassen'];
 				$Vakken = $_POST['Vakken'];
@@ -269,7 +263,7 @@ else if(isset($_SESSION['TimeStart']) && isset($_SESSION['TimeStop']))
 				mysql_connect($Server, $Username, $Password);
 				mysql_select_db($Database);
 				$Resultaat = mysql_query($sql2) or die ($sql2);
-					
+
 					echo "<div class='viewtable'>";
 					echo "<table class='table table-striped table-bordered table-hover table-condensed'>";
 					echo "<thead class='thead-inverse'>";
@@ -289,9 +283,9 @@ else if(isset($_SESSION['TimeStart']) && isset($_SESSION['TimeStop']))
 							echo ("<th> <img src='img/uncheck.png' style='width: 25px; height: 25px;'> <img src='img/check.png' style='width: 25px; height: 25px;'> </th>");
 							echo ("<th> Opmerking:</th>");
 							echo ("<th><button type='button' class='btn btn-default' onclick='window.print()'><img src='img/glyphicon glyphicon-print.png' style='width: 20px; height: 20px;'></button>");
-						echo ("</tr>");	
+						echo ("</tr>");
 					echo "</thead>";
-						
+
 					}
 			while ($row = mysql_fetch_assoc($Resultaat)) {
 						echo ("
@@ -330,7 +324,7 @@ else if(isset($_SESSION['TimeStart']) && isset($_SESSION['TimeStop']))
 									".$row['Werkzaamheden']."
 								</td>
 								");
-								
+
 								if ($row['Check']  == 1){
 										$checkimg = "img/check.png";
 									} elseif ($row['Check']  == 2) {
@@ -340,28 +334,28 @@ else if(isset($_SESSION['TimeStart']) && isset($_SESSION['TimeStop']))
 									}
 									//echo ("<th>". $checkimg. "</th>");
 									echo ("<td><form action= 'checkbox.php' name='check' method='POST'><input type='image' alt='submit' name='check' src='".$checkimg."' style='width: 25px; height: 25px;'></a> </td>");
-													
+
 								echo "
 								<td>
 									".$row['Opmerking']."
 								</td>";
 								echo ("<td>");
 								$id  = $row['PostID'];
-								echo ("<form action= 'Opmerking.php' method='POST'> <input 	type='text' name='opmerking'>");	
-								echo  "<input type='hidden' name='PostID' value='$id'>";				
+								echo ("<form action= 'Opmerking.php' method='POST'> <input 	type='text' name='opmerking'>");
+								echo  "<input type='hidden' name='PostID' value='$id'>";
 								echo ("<input type='submit' value='+' name='post'></form>");
 								echo ("</td>");
 
 
-						
+
 					}
-			
+
 			echo "</table>";
 		 echo "</div>";
- 
-		 
-			
-		
+
+
+
+
 	?>
 </div>
 
