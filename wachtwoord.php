@@ -61,6 +61,8 @@ require('connect.php');
 
 			<form action="wachtwoord.php" method="post" class="Inlogform">
 			<?php
+
+            require ('connect.php');
 			if(isset($_POST['Inloggen'])){
 				$Wachtwoord = hash('sha224', $_POST['Wachtwoord']);
 				$WachtwoordB = hash('sha224', $_POST['WachtwoordB']);
@@ -73,21 +75,11 @@ require('connect.php');
 							");
 				}
 				else{
-						$Database = "urenboek";
+
 						$mysqlQueryGebruikersnaam = "UPDATE `account` SET`Wachtwoord`='$Wachtwoord',`FirstLogin`= 1 WHERE `Leerlingnummer` = '$Leerlingnummer';";
 
-						//Verbinding met database
-						mysql_connect($Server, $Username, $Password) or die("
-							<div class='alert alert-danger'>
-								<strong>Error</strong> Kon geen verbinding maken met database.
-							</div>
-						");
-						mysql_select_db($Database) or die ("
-							<div class='alert alert-danger'>
-								<strong>Error</strong> Kan database niet in gegevens vinden.
-							</div>
-						");
-						$query1 = mysql_query($mysqlQueryGebruikersnaam) or die ("
+						//Verbinding met database-> niet meer nodig dus verwijderd
+						$query1 = mysqli_query($conn, $mysqlQueryGebruikersnaam) or die ("
 							<div class='alert alert-danger'>
 								<strong>Error</strong> Fout in SQL-code, Neem contact met de beheerder.
 							</div>
