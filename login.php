@@ -5,10 +5,14 @@ require('connect.php');
 $Leerlingnummer = $_POST['Leerlingnummmer'];
 $Encrypt = hash('sha224', $_POST['Wachtwoord']);
 
-$PHP = mysql_query("SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND Wachtwoord='$Encrypt';");
-$PHP2 = mysql_query("SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND Wachtwoord='ABC';");
-$Telquery = mysql_num_rows($PHP);
-$Telquery3 = mysql_num_rows($PHP2);
+
+$query = "SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND Wachtwoord='$Encrypt'";
+$query_1 = "SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND Wachtwoord='ABC'";
+
+$PHP = mysqli_query($conn, $query);
+$PHP2 = mysqli_query($conn, $query_1);
+$Telquery = mysqli_num_rows($PHP);
+$Telquery3 = mysqli_num_rows($PHP2);
 if($Telquery == 0){
  include("index.html");
  Echo "<div class='alert alert-danger'>Wachtwoord of gebruikersnaam onjuist</div>"; 
