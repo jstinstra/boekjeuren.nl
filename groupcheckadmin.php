@@ -1,15 +1,9 @@
 <?php
 
+require('connect.php');
+
 if (isset($_SESSION['Username']) && $_SESSION['Username'] == true) {
 $Leerlingnummer = $_SESSION['Username'];
-
-$server = "localhost";
-$user = "root";
-$pass = "usbw";
-
-mysql_connect($server, $user, $pass) or die("Geen verbinding mogelijk met database");
-mysql_select_db("urenboek") or die("Databank niet gevonden");
-
 
 $group = mysql_query("SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND GroupID= 0") or die ("Fout met zoeken");
 $group1 = mysql_query("SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND GroupID= 1") or die ("Fout met zoeken");
@@ -25,7 +19,7 @@ if($Groupquery == 1){
  $sql = mysql_query("SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND GroupID= 0");
  $Groupresult = mysql_num_rows($sql);
 
- 
+
  if($Groupresult == 1){
   header("Location: onbevoegd.php");
  }
@@ -39,7 +33,7 @@ if($Groupquery1 == 1){
  $sql1 = mysql_query("SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND GroupID= 1");
  $Groupresult1 = mysql_num_rows($sql1);
 
- 
+
  if($Groupresult1 == 1){
   header(" ");
  }
@@ -53,7 +47,7 @@ if($Groupquery2 == 1){
  $sql2 = mysql_query("SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND GroupID= 2");
  $Groupresult2 = mysql_num_rows($sql2);
 
- 
+
  if($Groupresult2 == 1){
   header("Location: Editor.php");
  }
@@ -67,7 +61,7 @@ if($Groupquery3 == 1){
  $sql3 = mysql_query("SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND GroupID= 3");
  $Groupresult3 = mysql_num_rows($sql3);
 
- 
+
  if($Groupresult3 == 1){
   header("Location: Admin.php");
  }

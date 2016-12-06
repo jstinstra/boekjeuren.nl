@@ -2,6 +2,7 @@
 <?php
 session_start();
 require("groupcheck.php");
+require('connect.php');
 ?>
 
 
@@ -44,12 +45,12 @@ require("groupcheck.php");
 </div>
 
 <div class="container">
-  
+
   <div class="text-center">
     <h1>Log je uren van je werk in!</h1>
     <p class="lead">Roc Kop van Noordholland, Schagen</p>
   </div>
-  
+
 </div>
 <div class="invoegbalk">
 
@@ -72,13 +73,9 @@ require("groupcheck.php");
 							");
 				}
 				else{
-					//Verbinding met database
-						$Server = "localhost";
-						$Username = "root";
-						$Password = "usbw";
 						$Database = "urenboek";
 						$mysqlQueryGebruikersnaam = "UPDATE `account` SET`Wachtwoord`='$Wachtwoord',`FirstLogin`= 1 WHERE `Leerlingnummer` = '$Leerlingnummer';";
-						
+
 						//Verbinding met database
 						mysql_connect($Server, $Username, $Password) or die("
 							<div class='alert alert-danger'>
@@ -119,16 +116,16 @@ require("groupcheck.php");
 						</tbody>
 						<tfoot>
 							<td colspan=2>
-								
+
 									<input type="Submit" value="veranderen" class="Inlogbutton" name="Inloggen">
-								
+
 							</td>
 						</tfoot>
 					</table>
 				</fieldset>
 			</form>
 		</div>
-	
+
 		<div class="col-md-6">
 			<img src="img/selfie.png" width="100%" height="100%">
 		</div>
