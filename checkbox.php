@@ -7,22 +7,29 @@
 	//VARS VOOR SQL CODE
 	$User = $_SESSION['Username'];
 	$id = $_POST['PostID'];
-	
-	$query1 =  mysql_query("SELECT `PostID`, `User`, `Tijd-in`, `Tijd-uit`, `Datum`, `Locatie`, `Vak`, `Check`, `Werkzaamheden`, `Opmerking` FROM `posts` WHERE `PostID` = $id AND `Check` = 1;") or die ("Fout met zoeken");
-	$query2 =  mysql_query("SELECT `PostID`, `User`, `Tijd-in`, `Tijd-uit`, `Datum`, `Locatie`, `Vak`, `Check`, `Werkzaamheden`, `Opmerking` FROM `posts` WHERE `PostID` = $id AND `Check` = 2;") or die ("Fout met zoeken");
-	$query0 =  mysql_query("SELECT `PostID`, `User`, `Tijd-in`, `Tijd-uit`, `Datum`, `Locatie`, `Vak`, `Check`, `Werkzaamheden`, `Opmerking` FROM `posts` WHERE `PostID` = $id AND `Check` = 0;") or die ("Fout met zoeken");
-	$result1 = mysql_num_rows($query1);
-	$result2 = mysql_num_rows($query2);
-	$result0 = mysql_num_rows($query0);
+//query's in variabelen
+	$sql = "SELECT `PostID`, `User`, `Tijd-in`, `Tijd-uit`, `Datum`, `Locatie`, `Vak`, `Check`, `Werkzaamheden`, `Opmerking` FROM `posts` WHERE `PostID` = $id AND `Check` = 1";
+	$sql1 = "SELECT `PostID`, `User`, `Tijd-in`, `Tijd-uit`, `Datum`, `Locatie`, `Vak`, `Check`, `Werkzaamheden`, `Opmerking` FROM `posts` WHERE `PostID` = $id AND `Check` = 2";
+	$sql0 = "SELECT `PostID`, `User`, `Tijd-in`, `Tijd-uit`, `Datum`, `Locatie`, `Vak`, `Check`, `Werkzaamheden`, `Opmerking` FROM `posts` WHERE `PostID` = $id AND `Check` = 0";
+//query's uitvoeren in variabelen
+	$query1 =  mysqli_query($conn, $sql) or die ("Fout met zoeken");
+	$query2 =  mysqli_query($conn, $sql1) or die ("Fout met zoeken");
+	$query0 =  mysqli_query($conn, $sql2) or die ("Fout met zoeken");
+//Resultaten van query's in variabelen
+	$result1 = mysqli_num_rows($query1);
+	$result2 = mysqli_num_rows($query2);
+	$result0 = mysqli_num_rows($query0);
 
 
 	if ($result0 == 1){
-	$sql =  mysql_query("SELECT `PostID`, `User`, `Tijd-in`, `Tijd-uit`, `Datum`, `Locatie`, `Vak`, `Check`, `Werkzaamheden`, `Opmerking` FROM `posts` WHERE `PostID` = $id AND `Check` = 0;");
-	mysql_query($sql);
-	$goed = mysql_num_rows($sql);
+      $sql2="SELECT `PostID`, `User`, `Tijd-in`, `Tijd-uit`, `Datum`, `Locatie`, `Vak`, `Check`, `Werkzaamheden`, `Opmerking` FROM `posts` WHERE `PostID` = $id AND `Check` = 0";
+	$query3 =  mysqli_query($conn, $sql2);
+
+	$goed = mysqli_num_rows($query3);
 
 	if($goed == 1){
-	$sql =  mysql_query("UPDATE `urenboek`.`posts` SET `Check` = '1' WHERE `posts`.`PostID` = $id;");
+	$query4="UPDATE `urenboek`.`posts` SET `Check` = '1' WHERE `posts`.`PostID` = $id;";
+	$sql3 =  mysqli_query($conn, $query4);
 		echo"<div class='alert alert-success' style='text-align: center;'>Goedkeuring goedgekeurd</div>";
 
 
