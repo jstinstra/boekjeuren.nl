@@ -114,7 +114,7 @@ if (something) {
 		
 <div class="row col-md-8">		
 <table>
-<form action='adminview.php' method='post' style='float: right; margin-right: 5%;'>
+<form action='adminView.php' method='post' style='float: right; margin-right: 5%;'>
 <input type='submit'  class='viewbutton'  name='view' id='view'>
 </form>
 <form action='filter.php' method='post' style='float: right; margin-right: 5%;'>

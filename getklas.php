@@ -94,7 +94,7 @@ $result = mysqli_query($con,$sql);
 								</td>");
 								echo ("<td>");
 								$id  = $row['PostID'];
-								echo ("<form action= 'Opmerking.php' method='POST'> <input 	type='text' name='opmerking'>");
+								echo ("<form action= 'opmerking.php' method='POST'> <input 	type='text' name='opmerking'>");
 								echo  "<input type='hidden' name='PostID' value='$id'>";
 								echo ("<input type='submit' value='+' name='post'></form>");
 								echo ("</td>");

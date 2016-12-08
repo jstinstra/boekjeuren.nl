@@ -56,7 +56,7 @@ require_once("../groupcheckadmin.php");
 
 <h2> Vak Toevoegen </h2>
 
-<form action= "addvak.php" method="post">
+<form action= "addSubject.php" method="post">
 
 		<input type="text" placeholder="Vak" name="Vak" id="Vak"></input>
 

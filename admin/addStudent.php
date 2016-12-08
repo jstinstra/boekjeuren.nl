@@ -89,7 +89,7 @@ if (isset($_POST['submit'])) {
 
 	print "Upload een nieuwe csv door erop te klikken in uw documenten en vervolgens upload<br />\n";
 
-	print "<form enctype='multipart/form-data' action='addleerling.php' method='post'>";
+	print "<form enctype='multipart/form-data' action='addStudent.php' method='post'>";
 
 	print "Bestands naam om te importeren:<br />\n";
 
@@ -100,7 +100,7 @@ if (isset($_POST['submit'])) {
 }
 
 ?>
-	<form action= "Leerling.php" method="post">
+	<form action= "student.php" method="post">
 
 		<h2> Voeg handmatig iemand toe </h2>
 		<input type="text" name="Leerlingnummer" placeholder="Leerlingnummer"></input><br>

@@ -176,7 +176,7 @@ var slider = new Slider("#ex8", {
 </form>
 
 <!-- Viewbutton -->
-<form action='viewtodo.php' method='post' style='float: right; margin-right: 5%;'>
+<form action='viewToDo.php' method='post' style='float: right; margin-right: 5%;'>
 <input type='submit'  class='viewbutton'  name='view' id='view'>
 </form>
 </table>

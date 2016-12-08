@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 require_once("../check.php");
@@ -185,7 +184,7 @@ require_once("../groupcheckadmin.php");
 						  </a>
                         </div><!-- /.col-md-3 -->
                         <div class="col-md-3 col-sm-6 col-xs-12">
-						  <a href="Vaktoevoegen.php">
+						  <a href="vakToevoegen.php">
                             <div class="feature">
                                 <i class="fa fa-gift"></i>
                                 <div class="feature-content">
@@ -196,7 +195,7 @@ require_once("../groupcheckadmin.php");
 						  </a>
                         </div><!-- /.col-md-3 -->
                         <div class="col-md-3 col-sm-6 col-xs-12">
-						  <a href="addleerling.php">
+						  <a href="addStudent.php">
                             <div class="feature">
                                 <i class="fa fa-child"></i>
                                 <div class="feature-content" >
@@ -216,7 +215,7 @@ require_once("../groupcheckadmin.php");
                             </div>
                         </div><!-- /.col-md-3 -->
                         <div class="col-md-3 col-sm-6 col-xs-12">
-						  <a href="Toevoegen.php">
+						  <a href="add.php">
                             <div class="feature">
                                 <i class="fa fa-joomla"></i>
                                 <div class="feature-content">

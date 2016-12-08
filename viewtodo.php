@@ -45,7 +45,7 @@
 						$checkimg = "img/emptycheck.png";
 					}
 					//echo ("<th>". $checkimg. "</th>");
-				echo ("<td><form action= 'CheckToDo.php' name='check' method='POST'><input type='image' alt='submit' name='check' src='".$checkimg."' style='width: 25px; height: 25px;'></a> </td>");
+				echo ("<td><form action= 'checkToDo.php' name='check' method='POST'><input type='image' alt='submit' name='check' src='" .$checkimg."' style='width: 25px; height: 25px;'></a> </td>");
 				$id  = $row['ToDoID'];	
 				echo  "<input type='hidden' name='ToDoID' value='$id'>";				
 				echo ("</td>");

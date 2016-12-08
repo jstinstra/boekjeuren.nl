@@ -52,7 +52,7 @@
 				echo  "<input type='hidden' name='PostID' value='$id'>";
 
 				echo ("<th></form>");
-				echo ("<form action= 'Opmerking.php' method='POST'> <input 	type='text' name='opmerking'>");
+				echo ("<form action= 'opmerking.php' method='POST'> <input 	type='text' name='opmerking'>");
 				echo  "<input type='hidden' name='PostID' value='$id'>";
 				echo ("<input type='submit' value='+' name='post'></form></th>");
 			echo ("</tr>");

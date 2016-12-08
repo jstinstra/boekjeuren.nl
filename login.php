@@ -27,7 +27,7 @@ else if($Telquery == 1){
  $sql = mysql_query("SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND Wachtwoord='ABC' AND FirstLogin= 0");
  $Telquery2 = mysql_num_rows($sql);
  if($Telquery2 == 1){
-  header("Location: wachtwoord.php");
+  header("Location: password.php");
  }else{
   header("Location: urenboek.php");
  }
@@ -46,7 +46,7 @@ else if($Telquery3 == 1){
  $sql = mysql_query("SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND Wachtwoord='ABC' AND FirstLogin= 0");
  $Telquery4 = mysql_num_rows($sql);
  if($Telquery4 == 1){
-  header("Location: wachtwoord.php");
+  header("Location: password.php");
  }else{
   header("Location: urenboek.php");
  }

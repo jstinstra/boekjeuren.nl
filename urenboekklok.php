@@ -160,7 +160,7 @@ if (something) {
 
 			  
 
-<form action="viewpost.php" method="post" style="float: right; margin-right: 5%;">
+<form action="viewPost.php" method="post" style="float: right; margin-right: 5%;">
 <input type="submit"  class="viewbutton"  name='view' id="view">
 </form>
 

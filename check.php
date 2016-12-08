@@ -17,7 +17,7 @@ if($Telquery == 1){
  $sql = mysqli_query($conn, $query1);
  $Telquery2 = mysqli_num_rows($sql) or die ("JE VIND ME NOOIT!");
  if($Telquery2 == 1){
-  header("Location: wachtwoord.php");
+  header("Location: password.php");
  }else{
   header("Location: Tabel.php");
  }

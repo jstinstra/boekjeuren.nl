@@ -55,7 +55,7 @@ require_once("../groupcheckadmin.php");
 <br><br>
 <h2> Benoem groep aan gebruiker </h2>
 
-<form action= "addgroep.php" method="post">
+<form action= "addGroup.php" method="post">
 	
 		<input type="text" placeholder="Groep" name="Groep" id="Groep"></input>
 		<input type="text" placeholder="Gebruiker" name="Gebruiker" id="Gebruiker"></input>
