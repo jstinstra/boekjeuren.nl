@@ -18,9 +18,6 @@ th {text-align: left;}
 <body>
 
 <?php
-
-require('connect.php');
-
 $q = intval($_GET['q']);
 
 $con = mysqli_connect('localhost','root','usbw','urenboek');
