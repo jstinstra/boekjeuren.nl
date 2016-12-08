@@ -42,12 +42,15 @@
 
 
 	if ($result1 == 1){
-	$sql1 =  mysql_query("SELECT `PostID`, `User`, `Tijd-in`, `Tijd-uit`, `Datum`, `Locatie`, `Vak`, `Check`, `Werkzaamheden`, `Opmerking` FROM `posts` WHERE `PostID` = $id AND `Check` = 1;");
-	mysql_query($sql1);
-	$goed2 = mysql_num_rows($sql1);
+		$query5 = "SELECT `PostID`, `User`, `Tijd-in`, `Tijd-uit`, `Datum`, `Locatie`, `Vak`, `Check`, `Werkzaamheden`, `Opmerking` FROM `posts` WHERE `PostID` = $id AND `Check` = 1";
+		$sql4 =  mysqli_query($conn, $query5);
+	mysqli_query($conn, $query5);
+	$goed2 = mysqli_num_rows($sql4);
 
 	if($goed2 == 1){
-	$sql1 =  mysql_query("UPDATE `urenboek`.`posts` SET `Check` = '2' WHERE `posts`.`PostID` = $id;");
+
+		$query6 = "UPDATE `urenboek`.`posts` SET `Check` = '2' WHERE `posts`.`PostID` = $id";
+		$sql5 =  mysqli_query($conn, $query6);
 
 		echo"<div class='alert alert-danger'  style='text-align: center;'>Goedkeuring Foutgekeurd </div>";
 	}
@@ -57,11 +60,13 @@
 	}
 
 	if ($result2 == 1){
-	$sql2 =  mysql_query("SELECT `PostID`, `User`, `Tijd-in`, `Tijd-uit`, `Datum`, `Locatie`, `Vak`, `Check`, `Werkzaamheden`, `Opmerking` FROM `posts` WHERE `PostID` = $id AND `Check` = 2;");
-	mysql_query($sql2);
-	$goed3 = mysql_num_rows($sql2);
+	$query7 = "SELECT `PostID`, `User`, `Tijd-in`, `Tijd-uit`, `Datum`, `Locatie`, `Vak`, `Check`, `Werkzaamheden`, `Opmerking` FROM `posts` WHERE `PostID` = $id AND `Check` = 2";
+	$sql6 =  mysqli_query($conn, $query7);
+	mysqli_query($conn, $sql6);
+	$goed3 = mysqli_num_rows($sql6);
 	if($goed3 == 1){
-	$sql2 =  mysql_query("UPDATE `urenboek`.`posts` SET `Check` = '0' WHERE `posts`.`PostID` = $id;");
+	$query8 = "UPDATE `urenboek`.`posts` SET `Check` = '0' WHERE `posts`.`PostID` = $id";
+	$sql2 =  mysqli_query($conn, $query8);
 
 		echo"<div class='alert alert-warning' style='text-align: center;'>Goedkeuring leeg</div>";
 	}
