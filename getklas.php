@@ -30,15 +30,9 @@ $result = mysqli_query($con,$sql);
 			$Leerlingnummer = $_POST['Leerlingnummer'];
 			$Klassen = $_POST['Klassen'];
 				$Vakken = $_POST['Vakken'];
-				$Server = "localhost";
-				$Username = "root";
-				$Password = "usbw";
-				$Database = "urenboek";
 				$sql2 = "SELECT `PostID`, `Leerlingnummer`, `Klas`, `Voornaam`, `Tussenvoegsel`, `Achternaam`, `Vak`, `Tijd-in`, `Tijd-uit`, `Locatie`,`Datum`, `Werkzaamheden` , `Opmerking` FROM account INNER JOIN posts ON account.Leerlingnummer = posts.User WHERE Vak LIKE '$Vakken' AND Leerlingnummer LIKE '$Leerlingnummer' AND Klas LIKE '$Klassen' ".$q."	;";
-				mysql_connect($Server, $Username, $Password);
-				mysql_select_db($Database);
 				$result = mysql_query($sql2) or die ($sql2);
-					
+
 					echo "<div class='viewtable'>";
 					echo "<table class='table table-striped table-bordered table-hover table-condensed'>";
 					echo "<thead class='thead-inverse'>";
@@ -56,9 +50,9 @@ $result = mysqli_query($con,$sql);
 							echo ("<th> Datum:</th>");
 							echo ("<th> Werkzaamheden:</th>");
 							echo ("<th> Opmerking:</th>");
-						echo ("</tr>");	
+						echo ("</tr>");
 					echo "</thead>";
-						
+
 			while ($row = mysql_fetch_assoc($Resultaat)) {
 						echo ("
 							<tr>
@@ -100,15 +94,15 @@ $result = mysqli_query($con,$sql);
 								</td>");
 								echo ("<td>");
 								$id  = $row['PostID'];
-								echo ("<form action= 'Opmerking.php' method='POST'> <input 	type='text' name='opmerking'>");	
-								echo  "<input type='hidden' name='PostID' value='$id'>";				
+								echo ("<form action= 'Opmerking.php' method='POST'> <input 	type='text' name='opmerking'>");
+								echo  "<input type='hidden' name='PostID' value='$id'>";
 								echo ("<input type='submit' value='+' name='post'></form>");
 								echo ("</td>");
 
 
-						
+
 					}
-			
+
 echo "</table>";
 mysqli_close($con);
 ?>
