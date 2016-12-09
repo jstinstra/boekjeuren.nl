@@ -97,7 +97,7 @@ require('connect.php');
 							<br>
 							<tr>
 								<td>
-									<input type="text" placeholder="Wachtwoord" name="Wachtwoord" class="loginbox" required/>
+									<input type="password" placeholder="Wachtwoord" name="Wachtwoord" class="loginbox" required/>
 								</td>
 								<td>
 									<input type="password" placeholder="Bevestig wachtwoord" name="WachtwoordB" class="loginbox" required/>

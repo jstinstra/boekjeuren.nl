@@ -10,8 +10,10 @@ $query = "SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND Wacht
 $query_1 = "SELECT * FROM account WHERE Leerlingnummer='$Leerlingnummer' AND Wachtwoord='ABC'";
 
 $PHP = mysqli_query($conn, $query);
+echo $query_1."<br>";
 $PHP2 = mysqli_query($conn, $query_1);
 $Telquery = mysqli_num_rows($PHP);
+
 $Telquery3 = mysqli_num_rows($PHP2);
 if($Telquery == 0){
  include("index.html");
