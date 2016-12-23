@@ -1,12 +1,11 @@
 <?php
-session_start();
-require_once("../check.php");
-require_once("../groupcheckadmin.php");
+
+require_once("/session.php");
+require_once("/check.php");
+require_once("/groupcheckadmin.php");
+
 ?>
-
-
 <html lang="en">
-
     <head>
 		<!-- Autheurs rechten/charsets -->
         <meta charset="utf-8">
@@ -231,13 +230,5 @@ require_once("../groupcheckadmin.php");
             </div>
         </div>
         <!-- End Feature Section -->
-        
-        
-             
-        
- 
-   
-        
     </body>
-    
 </html>

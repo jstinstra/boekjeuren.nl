@@ -1,11 +1,11 @@
-<!DOCTYPE html>
 <?php
-session_start();
+
+require_once("/session.php");
 require("groupcheck.php");
 require('connect.php');
+
 ?>
-
-
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
